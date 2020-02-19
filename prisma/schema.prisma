@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:1@localhost:5432/api_project?schema=public"
+}
+
+model about {
+  id        String     @default(uuid()) @id
+  status    String     @default("")
+  text_arm  String     @default("")
+  text_eng  String     @default("")
+  text_rus  String     @default("")
+  published DateTime   @default(now())
+}
+
+model blog_post {
+  id        String     @default(uuid())  @id
+  title     String     @default("")
+  content   String     @default("")
+  slug      String?
+  published DateTime   @default(now())
+  comments  comment[]  @relation(name:"blog-comment")
+}
+
+model comment {
+  id           String     @default(uuid())  @id
+  content      String     @default("")
+  blog_post_id blog_post  @relation(references: [id], name:"blog-comment")
+  published    DateTime   @default(now())
+}
+
+model homepage_slider {
+  id        String      @default(uuid())  @id
+  filepath  String      @default("")
+  position  Int?
+  published DateTime    @default(now())
+}
+
+model partner_slider {
+  id        String      @default(uuid())  @id
+  filepath  String      @default("")
+  url       String?
+  published DateTime    @default(now())
+}
+
+model user {
+  id         Int         @default(uuid())  @id
+  email      String      @default("") @unique
+  name       String      @default("")
+  password   String      @default("")
+  username   String      @default("") @unique
+}

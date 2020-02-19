@@ -1,0 +1,3 @@
+route print -4
+
+cmd command

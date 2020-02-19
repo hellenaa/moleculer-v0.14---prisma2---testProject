@@ -1,0 +1,42 @@
+{
+	"extends": [
+		"airbnb-base"
+	],
+	"rules": {
+		"indent": [
+			"off"
+		],
+		"quotes": [
+			"warn",
+			"double"
+		],
+		"semi": [
+			"error",
+			"always"
+		],
+		"no-var": [
+			"error"
+		],
+		"no-console": [
+			"off"
+		],
+		"no-unused-vars": [
+			"warn"
+		],
+		"no-mixed-spaces-and-tabs": [
+			"warn"
+		],
+		"no-tabs": [
+			"off"
+		],
+		"comma-dangle": [
+			"error", "never"
+		],
+		"strict": [
+			"off", "global"
+		],
+		"camelcase": [
+			"off"
+		],
+	}
+}
